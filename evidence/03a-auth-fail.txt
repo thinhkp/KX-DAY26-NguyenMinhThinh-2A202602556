@@ -1,0 +1,61 @@
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\03-production\auth_client.py", line 49, in <module>
+  |     asyncio.run(main())
+  |     ~~~~~~~~~~~^^^^^^^^
+  |   File "C:\Users\thinh\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+  |     return runner.run(main)
+  |            ~~~~~~~~~~^^^^^^
+  |   File "C:\Users\thinh\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+  |     return self._loop.run_until_complete(task)
+  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  |   File "C:\Users\thinh\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+  |     return future.result()
+  |            ~~~~~~~~~~~~~^^
+  |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\03-production\auth_client.py", line 32, in main
+  |     async with streamable_http_client(SERVER_URL, http_client=http_client) as (
+  |                ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\thinh\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 235, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\streamable_http.py", line 771, in streamable_http_client
+  |     anyio.create_task_group() as tg,
+  |     ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\streamable_http.py", line 788, in streamable_http_client
+    |     yield read_stream, write_stream
+    |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\03-production\auth_client.py", line 36, in main
+    |     async with ClientSession(read, write) as session:
+    |                ~~~~~~~~~~~~~^^^^^^^^^^^^^
+    |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\session.py", line 514, in __aexit__
+    |     result = await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 847, in __aexit__
+    |     raise BaseExceptionGroup(
+    |         "unhandled errors in a TaskGroup", self._exceptions
+    |     ) from None
+    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\03-production\auth_client.py", line 37, in main
+      |     await session.initialize()
+      |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\session.py", line 654, in initialize
+      |     result = await self.send_request(
+      |              ^^^^^^^^^^^^^^^^^^^^^^^^
+      |     ...<9 lines>...
+      |     )
+      |     ^
+      |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\session.py", line 586, in send_request
+      |     raw = await self._dispatcher.send_raw_request(method, data.get("params"), opts)
+      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\shared\jsonrpc_dispatcher.py", line 461, in send_raw_request
+      |     raise MCPError(code=outcome.code, message=outcome.message, data=outcome.data)
+      | mcp.shared.exceptions.MCPError: Server returned an error response
+      +------------------------------------
+
+Actual server log excerpt:
+INFO:     127.0.0.1:52053 - "POST /mcp HTTP/1.1" 401 Unauthorized

@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><title>Lab 26 execution evidence</title><style>body{margin:24px;background:#101725;color:#edf3ff;font:15px Consolas,monospace;}h1{font:24px Arial}p{color:#b6c5df}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45}</style><h1>Lab 26 · 01-function-calling</h1><p>Actual captured process output · Exit code 0 · 2026-10-14T04:32:30.831159+00:00<br>Command: python weather_function_calling.py Dùng tool get_weather lấy dữ liệu minh họa thời tiết Hà Nội và Đà Nẵng hôm nay. Nói rõ dữ liệu giả lập.<br>This page displays a saved execution transcript; it is not a terminal screenshot.</p><pre>User: Dùng tool get_weather lấy dữ liệu minh họa thời tiết Hà Nội và Đà Nẵng hôm nay. Nói rõ dữ liệu giả lập.
+
+  [model yêu cầu] get_weather({&#x27;city&#x27;: &#x27;Hà Nội&#x27;})
+  [app thực thi]  -&gt; {&quot;city&quot;: &quot;Hà Nội&quot;, &quot;nhiệt_độ&quot;: &quot;29°C&quot;, &quot;thời_tiết&quot;: &quot;trời mưa nhẹ&quot;, &quot;độ_ẩm&quot;: &quot;82%&quot;, &quot;gió&quot;: {&quot;hướng&quot;: &quot;Đông Nam&quot;, &quot;tốc_độ&quot;: &quot;12 km/h&quot;}}
+  [model yêu cầu] get_weather({&#x27;city&#x27;: &#x27;Đà Nẵng&#x27;})
+  [app thực thi]  -&gt; {&quot;city&quot;: &quot;Đà Nẵng&quot;, &quot;nhiệt_độ&quot;: &quot;30°C&quot;, &quot;thời_tiết&quot;: &quot;nhiều mây&quot;, &quot;độ_ẩm&quot;: &quot;78%&quot;, &quot;gió&quot;: {&quot;hướng&quot;: &quot;Đông&quot;, &quot;tốc_độ&quot;: &quot;10 km/h&quot;}}
+Trả lời: ⚠️ **Lưu ý:** Đây là **dữ liệu thời tiết minh họa (giả lập)** từ công cụ `get_weather`.
+
+---
+
+### 🏛️ **Hà Nội**
+* 🌡️ **Nhiệt độ:** 29°C
+* 🌧️ **Thời tiết:** Trời mưa nhẹ
+* 💧 **Độ ẩm:** 82%
+* 💨 **Gió:** Đông Nam (12 km/h)
+
+👉 **Lời khuyên:** Dù chỉ mưa nhẹ, bạn vẫn nên chuẩn bị sẵn một chiếc ô ☂️ hoặc áo mưa mỏng khi ra ngoài để tránh bị ướt nhé!
+
+---
+
+### 🌊 **Đà Nẵng**
+* 🌡️ **Nhiệt độ:** 30°C
+* ⛅ **Thời tiết:** Nhiều mây
+* 💧 **Độ ẩm:** 78%
+* 💨 **Gió:** Đông (10 km/h)
+
+👉 **Lời khuyên:** Thời tiết khá mát mẻ và dễ chịu. Bạn nên mặc trang phục thoải mái, thoáng mát 👕 và mang theo chút nước khi đi dạo quanh thành phố nhé!
+</pre>

@@ -4,6 +4,7 @@ Verification script for Weather Agent setup
 Checks if all components are configured correctly
 """
 import os
+import asyncio
 import sys
 from pathlib import Path
 
@@ -11,15 +12,19 @@ def check_environment():
     """Check if .env file exists and is configured"""
     print("🔍 Checking environment configuration...")
     
-    env_file = Path(".env")
-    if not env_file.exists():
+    env_file = Path(__file__).resolve().parent / ".env"
+    root_env = Path(__file__).resolve().parents[2] / ".env"
+    if not env_file.exists() and not root_env.exists():
         print("❌ .env file not found")
         print("   Run: echo 'GOOGLE_API_KEY=your_key' > .env")
         return False
     
     # Check if GOOGLE_API_KEY is set
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(env_file)
+    load_dotenv(root_env)
+    if not os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
+        os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
     
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key or api_key == "your_google_api_key_here":
@@ -27,7 +32,7 @@ def check_environment():
         print("   Get key from: https://aistudio.google.com/apikey")
         return False
     
-    print(f"✅ GOOGLE_API_KEY configured ({api_key[:10]}...)")
+    print("✅ GOOGLE_API_KEY configured (value hidden)")
     return True
 
 def check_dependencies():
@@ -88,16 +93,30 @@ def check_mcp_server():
     server_url = os.getenv("MCP_SERVER_URL", "http://localhost:8085/mcp")
 
     try:
-        import httpx
+        from mcp import ClientSession
+        from mcp.client.streamable_http import streamable_http_client
 
-        response = httpx.get(server_url, timeout=10.0)
-        # GET thuần lên endpoint MCP thường bị từ chối (400/405/406) vì thiếu
-        # header/session MCP — nhưng có phản hồi nghĩa là server đang chạy.
-        if response.status_code < 500:
-            print(f"✅ MCP server reachable at {server_url} (HTTP {response.status_code})")
-            return True
-        print(f"⚠️  MCP server returned status {response.status_code}")
-        return False
+        async def discover():
+            async with streamable_http_client(server_url) as (read, write, _):
+                async with ClientSession(read, write) as session:
+                    await session.initialize()
+                    tools = await session.list_tools()
+                    result = await session.call_tool("health_check", {})
+                    if result.isError:
+                        raise RuntimeError("MCP health_check returned an error")
+                    return {tool.name for tool in tools.tools}
+
+        async def check_with_timeout():
+            return await asyncio.wait_for(discover(), timeout=30)
+
+        names = asyncio.run(check_with_timeout())
+        required = {"get_current_weather", "get_forecast", "health_check"}
+        if not required.issubset(names):
+            print(f"❌ Missing MCP tools: {sorted(required - names)}")
+            return False
+        print(f"✅ MCP server reachable at {server_url} (MCP initialize + list_tools + health_check)")
+        print(f"   Discovered tools: {', '.join(sorted(names))}")
+        return True
 
     except Exception as e:
         print(f"❌ Cannot reach MCP server at {server_url}: {e}")

@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><title>Lab 26 execution evidence</title><style>body{margin:24px;background:#101725;color:#edf3ff;font:15px Consolas,monospace;}h1{font:24px Arial}p{color:#b6c5df}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45}</style><h1>Lab 26 · 03b-registry</h1><p>Actual captured process output · Exit code 0 · 2026-10-14T04:32:35.678427+00:00<br>Command: python registry_client.py<br>This page displays a saved execution transcript; it is not a terminal screenshot.</p><pre>=== Tool Registry ===
+
+  get_weather v1.0.0
+    Lấy thời tiết hiện tại của một thành phố
+    tags: [&#x27;weather&#x27;, &#x27;current&#x27;, &#x27;vietnam&#x27;]  →  server: weather
+  get_weather_v2 v2.0.0
+    Lấy thời tiết chi tiết — JSON, hỗ trợ forecast và đơn vị đo
+    tags: [&#x27;weather&#x27;, &#x27;forecast&#x27;, &#x27;detailed&#x27;, &#x27;vietnam&#x27;]  →  server: weather-v2
+  send_email v1.0.0
+    Gửi email tới một hoặc nhiều người nhận
+    tags: [&#x27;email&#x27;, &#x27;notification&#x27;, &#x27;communication&#x27;]  →  server: email-service
+  query_db v1.2.0
+    Chạy truy vấn SQL trên database nội bộ
+    tags: [&#x27;database&#x27;, &#x27;sql&#x27;, &#x27;query&#x27;, &#x27;analytics&#x27;]  →  server: db-gateway
+
+--- Agent cần tool có tag &quot;weather&quot; ---
+Tìm thấy 2 tool(s):
+  • get_weather v1.0.0 (server: weather)
+  • get_weather_v2 v2.0.0 (server: weather-v2)
+
+Best match: get_weather_v2 v2.0.0
+Kết nối tới server [weather-v2]...
+Kết quả: {&quot;api_version&quot;: &quot;2.0&quot;, &quot;city&quot;: &quot;Hanoi&quot;, &quot;temp&quot;: 29, &quot;units&quot;: &quot;celsius&quot;, &quot;condition&quot;: &quot;trời mưa&quot;, &quot;humidity&quot;: 82, &quot;wind_speed_kmh&quot;: 12, &quot;timestamp&quot;: &quot;2026-10-14T04:32:35.222553+00:00&quot;}
+
+--- Agent tìm tool có keyword &quot;forecast&quot; ---
+  • get_weather_v2: Lấy thời tiết chi tiết — JSON, hỗ trợ forecast và đơn vị đo
+</pre>

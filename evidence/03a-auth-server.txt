@@ -1,0 +1,26 @@
+D:\workspace\vinai\Day26-MCP-Tools-Integration\03-production\auth_server.py:50: MCPDeprecationWarning: `AuthSettings.validate_token_resource` is not set, so bearer tokens are not checked against `resource_server_url`; it will default to True in 3.0 when `resource_server_url` is set. Set it to True to have the server refuse tokens issued for another resource, or to False if your TokenVerifier validates the token's audience itself.
+  auth=AuthSettings(
+D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\server\mcpserver\server.py:188: MCPDeprecationWarning: `AuthSettings.validate_token_resource` is not set, so bearer tokens are not checked against `resource_server_url`; it will default to True in 3.0 when `resource_server_url` is set. Set it to True to have the server refuse tokens issued for another resource, or to False if your TokenVerifier validates the token's audience itself.
+  self.settings = Settings(
+INFO:     Started server process [22024]
+INFO:     Waiting for application startup.
+[10/14/26 11:32:39] INFO     StreamableHTTP      streamable_http_manager.py:162
+                             session manager                                   
+                             started                                           
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[10/14/26 11:32:40] INFO     Created new         streamable_http_manager.py:325
+                             transport with                                    
+                             session ID:                                       
+                             4d176ce2ca7548c5898                               
+                             1c6a2791ec835                                     
+INFO:     127.0.0.1:51997 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:52001 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52010 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52012 - "POST /mcp HTTP/1.1" 200 OK
+[10/14/26 11:32:42] INFO     Terminating session:        streamable_http.py:855
+                             4d176ce2ca7548c58981c6a2791                       
+                             ec835                                             
+INFO:     127.0.0.1:52014 - "DELETE /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52053 - "POST /mcp HTTP/1.1" 401 Unauthorized

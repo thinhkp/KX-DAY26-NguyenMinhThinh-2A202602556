@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><title>Lab 26 execution evidence</title><style>body{margin:24px;background:#101725;color:#edf3ff;font:15px Consolas,monospace;}h1{font:24px Arial}p{color:#b6c5df}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45}</style><h1>Lab 26 · 03a-auth-fail</h1><p>Actual captured process output · Exit code 1 · 2026-10-14T04:38:56.254870+00:00<br>Command: MCP_AUTH_TOKEN=wrong-token python auth_client.py<br>This page displays a saved execution transcript; it is not a terminal screenshot.</p><pre>[Last 12 lines; see .txt for the complete transcript]
+      |     )
+      |     ^
+      |   File &quot;D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\client\session.py&quot;, line 586, in send_request
+      |     raw = await self._dispatcher.send_raw_request(method, data.get(&quot;params&quot;), opts)
+      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File &quot;D:\workspace\vinai\Day26-MCP-Tools-Integration\.venv\Lib\site-packages\mcp\shared\jsonrpc_dispatcher.py&quot;, line 461, in send_raw_request
+      |     raise MCPError(code=outcome.code, message=outcome.message, data=outcome.data)
+      | mcp.shared.exceptions.MCPError: Server returned an error response
+      +------------------------------------
+
+Actual server log excerpt:
+INFO:     127.0.0.1:52053 - &quot;POST /mcp HTTP/1.1&quot; 401 Unauthorized</pre>

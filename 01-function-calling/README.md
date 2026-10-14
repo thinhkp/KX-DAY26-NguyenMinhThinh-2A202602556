@@ -15,9 +15,71 @@ User hỏi  →  Model quyết định gọi get_weather(city="Hà Nội")
 
 ## Cách chạy
 
+### Tool dự báo dùng API thật (miễn phí)
+
+`get_forecast(city, days=3)` gọi HTTPS tới WeatherAPI và trả dự báo theo ngày:
+nhiệt độ thấp/cao/trung bình, khả năng mưa, lượng mưa, độ ẩm và gió.
+Gói Free hỗ trợ dự báo 3 ngày, bao gồm hôm nay theo giờ địa phương của thành phố.
+`get_weather` vẫn là tool giả lập của ví dụ ban đầu.
+
+**Lấy WeatherAPI key miễn phí:**
+
+1. Vào https://www.weatherapi.com/ và chọn **Sign Up / Get Free API Key**.
+2. Đăng ký tài khoản, xác nhận email nếu được yêu cầu rồi đăng nhập.
+3. Sao chép **API Key** trong trang tài khoản; dùng gói **Free**, không cần thẻ.
+4. Đặt key trong biến môi trường `WEATHERAPI_KEY`; không ghi key vào source code.
+
+Nguồn: [Getting Started](https://www.weatherapi.com/docs/getting-started/),
+[gói Free](https://www.weatherapi.com/).
+
+Gemini dùng key riêng: đăng nhập https://aistudio.google.com/apikey,
+chọn **Create API key** rồi đặt `GEMINI_API_KEY`.
+
+Chạy trên **PowerShell**, từ thư mục gốc repo:
+
+```powershell
+python -m pip install google-genai
+cd 01-function-calling
+$env:GEMINI_API_KEY="key_gemini_cua_ban"
+$env:WEATHERAPI_KEY="key_weatherapi_cua_ban"
+python weather_function_calling.py "Dự báo Hà Nội ngày mai có mưa không?"
+```
+
+Hoặc dùng **file `.env`** để không cần đặt `$env:` mỗi lần:
+
+```powershell
+python -m pip install google-genai python-dotenv
+cd 01-function-calling
+Copy-Item .env.example .env
+```
+
+Điền key thật trong `01-function-calling/.env`:
+
+```dotenv
+GEMINI_API_KEY=key_gemini_cua_ban
+WEATHERAPI_KEY=key_weatherapi_cua_ban
+```
+
+Sau đó chạy `python weather_function_calling.py`.
+Script cũng đọc `.env` ở thư mục gốc repo nếu thiếu key trong `.env` cạnh script.
+Thứ tự ưu tiên: biến môi trường của terminal, `.env` cạnh script, `.env` gốc repo.
+File `.env` đã được bỏ qua trong `.gitignore`; không commit key thật.
+
+Kiểm tra riêng WeatherAPI, không gọi Gemini:
+
+```powershell
+python -c "from weather_function_calling import get_forecast; import json; print(json.dumps(get_forecast('Hanoi', 3), ensure_ascii=False, indent=2))"
+```
+
+Hỏi ngày mai dùng `days=2`; ngày kia dùng `days=3`. Tool trả lỗi rõ ràng
+khi thiếu key, key sai, hết hạn mức hoặc không kết nối được API.
+
+### Chạy trên Bash
+
 ```bash
 pip install -r ../requirements.txt
 export GEMINI_API_KEY=...
+export WEATHERAPI_KEY=...
 python weather_function_calling.py
 ```
 

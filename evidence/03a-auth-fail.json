@@ -1,0 +1,6 @@
+{
+  "command": "MCP_AUTH_TOKEN=wrong-token python auth_client.py",
+  "exit_code": 1,
+  "captured_at_utc": "2026-10-14T04:38:56.254870+00:00",
+  "source": "actual subprocess stdout/stderr"
+}

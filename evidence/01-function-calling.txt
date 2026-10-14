@@ -1,0 +1,27 @@
+User: Dùng tool get_weather lấy dữ liệu minh họa thời tiết Hà Nội và Đà Nẵng hôm nay. Nói rõ dữ liệu giả lập.
+
+  [model yêu cầu] get_weather({'city': 'Hà Nội'})
+  [app thực thi]  -> {"city": "Hà Nội", "nhiệt_độ": "29°C", "thời_tiết": "trời mưa nhẹ", "độ_ẩm": "82%", "gió": {"hướng": "Đông Nam", "tốc_độ": "12 km/h"}}
+  [model yêu cầu] get_weather({'city': 'Đà Nẵng'})
+  [app thực thi]  -> {"city": "Đà Nẵng", "nhiệt_độ": "30°C", "thời_tiết": "nhiều mây", "độ_ẩm": "78%", "gió": {"hướng": "Đông", "tốc_độ": "10 km/h"}}
+Trả lời: ⚠️ **Lưu ý:** Đây là **dữ liệu thời tiết minh họa (giả lập)** từ công cụ `get_weather`.
+
+---
+
+### 🏛️ **Hà Nội**
+* 🌡️ **Nhiệt độ:** 29°C
+* 🌧️ **Thời tiết:** Trời mưa nhẹ
+* 💧 **Độ ẩm:** 82%
+* 💨 **Gió:** Đông Nam (12 km/h)
+
+👉 **Lời khuyên:** Dù chỉ mưa nhẹ, bạn vẫn nên chuẩn bị sẵn một chiếc ô ☂️ hoặc áo mưa mỏng khi ra ngoài để tránh bị ướt nhé!
+
+---
+
+### 🌊 **Đà Nẵng**
+* 🌡️ **Nhiệt độ:** 30°C
+* ⛅ **Thời tiết:** Nhiều mây
+* 💧 **Độ ẩm:** 78%
+* 💨 **Gió:** Đông (10 km/h)
+
+👉 **Lời khuyên:** Thời tiết khá mát mẻ và dễ chịu. Bạn nên mặc trang phục thoải mái, thoáng mát 👕 và mang theo chút nước khi đi dạo quanh thành phố nhé!

@@ -1,0 +1,6 @@
+{
+  "command": "python weather_function_calling.py D\u00f9ng tool get_weather l\u1ea5y d\u1eef li\u1ec7u minh h\u1ecda th\u1eddi ti\u1ebft H\u00e0 N\u1ed9i v\u00e0 \u0110\u00e0 N\u1eb5ng h\u00f4m nay. N\u00f3i r\u00f5 d\u1eef li\u1ec7u gi\u1ea3 l\u1eadp.",
+  "exit_code": 0,
+  "captured_at_utc": "2026-10-14T04:32:30.831159+00:00",
+  "source": "actual subprocess stdout/stderr"
+}

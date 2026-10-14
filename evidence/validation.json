@@ -1,0 +1,14 @@
+{
+  "required_png_count": 9,
+  "secret_scan": "passed",
+  "root_pip_check": "passed",
+  "server_lockfile": "matched",
+  "client_lockfile": "matched",
+  "adk_tools_called": [
+    "get_current_weather",
+    "get_forecast"
+  ],
+  "terminal_image_format_requirement": "7 images are browser screenshots of real logs; terminal recapture remains",
+  "github_pushed": false,
+  "vlearn_submitted": false
+}

@@ -1,0 +1,6 @@
+{
+  "command": "python registry_client.py",
+  "exit_code": 0,
+  "captured_at_utc": "2026-10-14T04:32:35.678427+00:00",
+  "source": "actual subprocess stdout/stderr"
+}

@@ -2,7 +2,12 @@ from typing import Any
 import asyncio
 import httpx
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 # Initialize FastMCP server
 port = int(os.getenv("PORT", 8085))
@@ -36,13 +41,13 @@ async def make_weather_request(endpoint: str, params: dict[str, str]) -> dict[st
             response.raise_for_status()
             return response.json()
         except httpx.HTTPStatusError as e:
-            print(f"HTTP Error {e.response.status_code}: {e.response.text}")
+            print(f"HTTP Error {e.response.status_code}: WeatherAPI request failed")
             return None
         except httpx.RequestError as e:
-            print(f"Request Error: {e}")
+            print("Request Error: Could not connect to WeatherAPI")
             return None
         except Exception as e:
-            print(f"Unexpected error: {e}")
+            print(f"Unexpected error: {type(e).__name__}")
             return None
 
 @mcp.tool()
@@ -91,6 +96,8 @@ async def get_forecast(city: str, days: int = 3) -> str:
         days: Number of days to forecast (1-3 for free tier, max 10 for paid)
     """
     # Limit days to 3 for free tier
+    if not 1 <= days <= 3:
+        return "days must be between 1 and 3 (including today)."
     days = min(days, 3)
     
     params = {

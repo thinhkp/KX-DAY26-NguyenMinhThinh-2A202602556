@@ -1,0 +1,6 @@
+{
+  "command": "uv run python verify_setup.py",
+  "exit_code": 0,
+  "captured_at_utc": "2026-10-14T04:36:02.316930+00:00",
+  "source": "actual subprocess stdout/stderr"
+}

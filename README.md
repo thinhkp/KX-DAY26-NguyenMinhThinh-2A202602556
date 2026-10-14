@@ -1,5 +1,12 @@
 # Phân biệt MCP và Function Calling
 
+## Bài thực hành đã chạy
+
+Nguyen Minh Thinh — MSSV **2A202602556**.
+Xem [báo cáo Lab 26](LAB26-REPORT.md) để đối chiếu kết quả, log và 9 ảnh bằng chứng.
+Phần demo đã chạy trên Windows, ADK gọi WeatherAPI thật cho thời tiết hiện tại
+và dự báo 3 ngày. Báo cáo ghi rõ nguồn ảnh và các bước còn lại trước khi nộp VLearn.
+
 Đây là hai khái niệm hay bị nhầm lẫn nhưng thực ra ở **hai tầng khác nhau**, và **bổ sung cho nhau** chứ không thay thế.
 
 ## Cấu trúc repo

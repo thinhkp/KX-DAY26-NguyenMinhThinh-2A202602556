@@ -6,6 +6,13 @@ from google.adk import Agent
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset, StreamableHTTPConnectionParams
 import logging
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
+if not os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
+    os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -36,6 +43,12 @@ try:
     root_agent = Agent(
         name="weather_agent",
         model="gemini-2.5-flash",
+        instruction=(
+            "Trả lời bằng tiếng Việt. Luôn dùng get_current_weather cho thời tiết hiện tại "
+            "và get_forecast cho dự báo; dùng tên thành phố không dấu khi gọi tool. "
+            "Nêu các con số và thời điểm cập nhật. Dự báo từng ngày với nhiệt độ cao/thấp "
+            "và xác suất mưa. Nếu tool thất bại, nói rõ lỗi, không bịa dữ liệu."
+        ),
         tools=[weather_tools],
     )
     logger.info("✅ Weather agent initialized with remote MCP tools:")

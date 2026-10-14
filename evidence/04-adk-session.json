@@ -1,0 +1,300 @@
+{
+  "id": "2d9d3282-7273-48f5-b864-39dc18aca878",
+  "appName": "weather_agent",
+  "userId": "user",
+  "state": {
+    "__session_metadata__": {
+      "displayName": "Thời tiết hiện tại ở Hà Nội thế nào? Dùng get_c..."
+    }
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Thời tiết hiện tại ở Hà Nội thế nào? Dùng get_current_weather, cho biết nhiệt độ, cảm giác như, độ ẩm, UV và thời điểm cập nhật."
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-cd9e0db6-599e-4ace-af7f-43f2b3e2099e",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": ""
+      },
+      "id": "68979281-3857-412b-ba50-6e315c91bb37",
+      "timestamp": 1791952495.06998
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-838e6518-4956-4ec8-97a2-e4b6a11c722c",
+              "args": {
+                "city": "Hanoi"
+              },
+              "name": "get_current_weather"
+            },
+            "thoughtSignature": "CqoCAWkUfROviq0E7URhw2GWkaW7J68H3U_CtrpNHKzi3DOyuCZWKGe00yOqSkU7hLoDaPmFsd4l4dpA9Lnfl51ZzmhVXoOKSILHc2Ls4cMBZxMwt2DI9AN4Ma1f-S7aB7ehu5f8ndK6qflP8HyqghxParC-b9r43aWgLiAZ9PejW0DgcXL6-Ls_xTkYUxXF5bcoYyy66YrHCSifkPJ6t3X8e8Gy35glGgmb5yBO68B8DDG2Tjbu2yZyDeinosgqgJ9lTWGI2NlfE1UpjZsyS3m1uBl7bJhA0VAi8DJkC3EF4i3iyWLYIWUbEfsbh3KAOfQH2nvXvaJDg2A981RDXTAfsINZZqyLnBQDK7R84KRqc9TQzK76ms5z3QT5y_0V8mkqcB5vntDVY8TvaA=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 18,
+        "promptTokenCount": 483,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 483
+          }
+        ],
+        "thoughtsTokenCount": 64,
+        "totalTokenCount": 565
+      },
+      "invocationId": "e-cd9e0db6-599e-4ace-af7f-43f2b3e2099e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "longRunningToolIds": [],
+      "id": "06041ae0-54de-4293-a85b-6062c150e39a",
+      "timestamp": 1791952499.3898473
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-838e6518-4956-4ec8-97a2-e4b6a11c722c",
+              "name": "get_current_weather",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "\nCurrent Weather for Hanoi, , Vietnam:\n\nTemperature: 32.9°C (91.2°F)\nFeels like: 35.4°C (95.7°F)\nCondition: Sunny\nHumidity: 47%\nWind: 3.6 km/h (2.2 mph) SW\nPressure: 1016.0 mb\nUV Index: 6.9\nVisibility: 10.0 km\n\nLast updated: 2026-10-14 11:15\n"
+                  }
+                ],
+                "structuredContent": {
+                  "result": "\nCurrent Weather for Hanoi, , Vietnam:\n\nTemperature: 32.9°C (91.2°F)\nFeels like: 35.4°C (95.7°F)\nCondition: Sunny\nHumidity: 47%\nWind: 3.6 km/h (2.2 mph) SW\nPressure: 1016.0 mb\nUV Index: 6.9\nVisibility: 10.0 km\n\nLast updated: 2026-10-14 11:15\n"
+                },
+                "isError": false
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-cd9e0db6-599e-4ace-af7f-43f2b3e2099e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "id": "0921a651-30a4-4ae1-8b33-13cc2b6e0a48",
+      "timestamp": 1791952501.9371545
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Thời tiết hiện tại ở Hà Nội là 32.9°C (91.2°F), cảm giác như 35.4°C (95.7°F). Độ ẩm là 47%. Chỉ số UV là 6.9. Dữ liệu được cập nhật lần cuối vào lúc 11:15 ngày 14 tháng 10 năm 2026.",
+            "thoughtSignature": "CvIDAWkUfRNiVUOez84QYCgHygs84Dg0bRbTRQXUWI6tv8rcwj9MIy8Rl6evBRvrad38rnIi-OvUajB4cHsPLe7MdxMfbvI3q2ne15j9EqoD7M2hjqOWB0yR-0BboDSp5KA2LVQ5mt_od9K1BgK8jedAwJ3nmxGq-k6ufgDX1pc75CoQLjnDDDqpqG8tKOZPAxrLoFdiYSXRGqRXDLTwlTAMVTgpRbfkUCMxtagktc0xa9yPgw2jJX0cq9Qalbm1FpYTabuC8vwXIGSc5hhYclKqji6cME2AEQlJu56DqkjiyEzB-nfUq5WqqoomyvNEgnmaGJ9ZKkrqEAdde6noKpLz_LmrM_xI8VDC53BjTZWdBw2V7-Cs0dgKQVExyrFDmRInUStI9H4njoSY6QMhj_X7NWzgZlPcoimOY94YL-8zM63uGoYcY5DZcQYXU0kM5el-xqRV5oSu5k6J8MEyCrKWbJZHeXuL2OoOZ7K1egedPlruf8LhFDphG58QSXUz7aUwR-_pIntmxG9Fed8cOlVL4ZW_t58s8g7VYFDjFAdYJYTC3mLV6QuUuRVUKnNmNksU4SyrU30Mj2kl_fnXMVVHTzPNBWQ8zPX7Cm-RLiPr9WxoWkSuvLFIV8WUJJtUG4TXYQ7hXoMrcwVTRLw7lnBnCGBR"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 88,
+        "promptTokenCount": 809,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 809
+          }
+        ],
+        "thoughtsTokenCount": 104,
+        "totalTokenCount": 1001
+      },
+      "invocationId": "e-cd9e0db6-599e-4ace-af7f-43f2b3e2099e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "id": "5ad43d43-6d44-446a-b90e-8b7438c7059a",
+      "timestamp": 1791952501.9492614
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Dùng get_forecast để dự báo thời tiết Hà Nội trong 3 ngày, nêu từng ngày với nhiệt độ cao/thấp và khả năng mưa."
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-7ae8989d-e26d-4584-a878-3f27f245735e",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": ""
+      },
+      "id": "91955cb4-bcd5-438b-988b-53855614b197",
+      "timestamp": 1791952526.1274884
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-3faf5dd3-2173-4791-b7a9-e88d0f044965",
+              "args": {
+                "city": "Hanoi",
+                "days": 3
+              },
+              "name": "get_forecast"
+            },
+            "thoughtSignature": "CtYCAWkUfRNWq-WLfGOmIyD2RQHD-NhpU0Ov-4tXaHqHQXK4EY20qlOlJhX57vcnd-e3edokGyd3J9SaVVo3bY0OkBhiBxsoKjrh3GkPuv2Q_jRkHDR0afdS4CNdufheFpQKhdJDCaiNEVZNvcXZLI0btRzVlT34YMMForyq3nxtHEurKyf2UqG3Wx433yf_G4M3z0A4uoW2Euyfv5z4LUVd7dQQ0mWCm2SSbpVz0N4IZWD-w8QLQqMew4-nvM6AVwb3IfKYPbYkCWHaej-1Q8ZU_tgOfqTBBRmyOSMjumuZMieMnZjrAZIs6TA_Ryy77YGe9z6J_xzmtDMGAZvvrWjkmpAH02tb3YDnS73YUkmPokA579BUgu_d6Q4xNDWbsWoq9DSCOHMqjbMBexNp6vi-KfhQIxPoPWA1snq919kqYpD8RZqXeDhmbOHX0FgTLXWfqEWNFqld"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 21,
+        "promptTokenCount": 931,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 931
+          }
+        ],
+        "thoughtsTokenCount": 76,
+        "totalTokenCount": 1028
+      },
+      "invocationId": "e-7ae8989d-e26d-4584-a878-3f27f245735e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "longRunningToolIds": [],
+      "id": "8070aa1d-b300-4804-a85e-26626cc19053",
+      "timestamp": 1791952526.394709
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-3faf5dd3-2173-4791-b7a9-e88d0f044965",
+              "name": "get_forecast",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Weather Forecast for Hanoi, , Vietnam:\n---\n\n2026-10-14:\nHigh: 34.4°C (93.9°F)\nLow: 24.9°C (76.8°F)\nCondition: Smoky haze\nChance of Rain: 5%\nMax Wind: 18.7 km/h\nUV Index: 7.6\n\n---\n\n2026-10-15:\nHigh: 33.8°C (92.8°F)\nLow: 24.7°C (76.5°F)\nCondition: Smoky haze\nChance of Rain: 6%\nMax Wind: 19.4 km/h\nUV Index: 7.4\n\n---\n\n2026-10-16:\nHigh: 33.7°C (92.6°F)\nLow: 24.3°C (75.7°F)\nCondition: Smoky haze\nChance of Rain: 9%\nMax Wind: 20.9 km/h\nUV Index: 8.3\n"
+                  }
+                ],
+                "structuredContent": {
+                  "result": "Weather Forecast for Hanoi, , Vietnam:\n---\n\n2026-10-14:\nHigh: 34.4°C (93.9°F)\nLow: 24.9°C (76.8°F)\nCondition: Smoky haze\nChance of Rain: 5%\nMax Wind: 18.7 km/h\nUV Index: 7.6\n\n---\n\n2026-10-15:\nHigh: 33.8°C (92.8°F)\nLow: 24.7°C (76.5°F)\nCondition: Smoky haze\nChance of Rain: 6%\nMax Wind: 19.4 km/h\nUV Index: 7.4\n\n---\n\n2026-10-16:\nHigh: 33.7°C (92.6°F)\nLow: 24.3°C (75.7°F)\nCondition: Smoky haze\nChance of Rain: 9%\nMax Wind: 20.9 km/h\nUV Index: 8.3\n"
+                },
+                "isError": false
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-7ae8989d-e26d-4584-a878-3f27f245735e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "id": "3334e395-b79d-4611-a10b-046feb82c530",
+      "timestamp": 1791952528.7667809
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Dưới đây là dự báo thời tiết 3 ngày tới cho Hà Nội:\n\n*   **Ngày 14 tháng 10 năm 2026**: Nhiệt độ cao nhất 34.4°C (93.9°F), thấp nhất 24.9°C (76.8°F). Khả năng mưa 5%.\n*   **Ngày 15 tháng 10 năm 2026**: Nhiệt độ cao nhất 33.8°C (92.8°F), thấp nhất 24.7°C (76.5°F). Khả năng mưa 6%.\n*   **Ngày 16 tháng 10 năm 2026**: Nhiệt độ cao nhất 33.7°C (92.6°F), thấp nhất 24.3°C (75.7°F). Khả năng mưa 9%."
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 205,
+        "promptTokenCount": 1552,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1552
+          }
+        ],
+        "totalTokenCount": 1757
+      },
+      "invocationId": "e-7ae8989d-e26d-4584-a878-3f27f245735e",
+      "author": "weather_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "nodeInfo": {
+        "path": "weather_agent@1"
+      },
+      "id": "a5ee6ce1-4ae2-4c2a-9ef5-5fd2b6a79a30",
+      "timestamp": 1791952528.7846184
+    }
+  ],
+  "lastUpdateTime": 1791952528.7846184
+}
